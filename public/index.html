@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home</title>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script async defer src="date.js"></script>
+    <script async defer src="script.js"></script>
+    <script async defer src="date.js"></script>
+    <script async defer src="SortAndExpand.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body onload="expandsortedTodos()">
+    <div class="container">
+        <div class="row jumbotron">
+            <span><img src="./img/task_img.png"  class="task_icon_img"></span>
+            <h1 id="main_heading">Task and Notes Management</h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-7">
+                    <span><h2 class="task_list_heading"> Task List</h2> </span>
+
+
+                    <div class="sortby">
+                        <span id="sort">Sort By:</span>
+                        <select id="sortby" onchange="expandsortedTodos()">
+                            <option value=""></option>
+                            <option value="duedate">Duedate</option>
+                            <option value="status">Status</option>
+                            <option value="priority">Priority</option>
+                        </select>
+
+                        <!-- <script>
+                            document.getElementById("sortby").addEventListener("load", getTodos);
+                        </script> -->
+                    </div>
+                    <!-- <div class="card mb-3"> -->
+                    <!-- <div class="card-header">
+                            Featured
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div> -->
+                    <!-- <ul id="tasklist">
+                        <li class="card mb-3"> </li>
+                    </ul> -->
+                    <!-- </div> -->
+                    <!-- <div class="card" style="width: 18rem;"> -->
+                    <ul class="list-group list-group-flush list " id="menu">
+
+                    </ul>
+                    <div class="modal fade" id="signup">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header" style="color:grey;text-align:center;height:50px;">
+                                    <h4 class="modal-title">Edit Details</h4>
+
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <span id="pmsg"></span>
+                                    <form>
+
+                                        <div class="form-group">
+                                            <label for="dat">Modify DueDate:*</label>
+                                            <input type=date id="update_duedate" name="duedate">
+                                        </div>
+
+                                        <div class=" form-group ">
+                                            <label for="priorit ">Change Priority:*</label>
+                                            <select id="update_priority" name="priority ">
+                                            <option value="1high">High</option>
+                                            <option  value="2medium" selected>Medium</option>
+                                            <option value="3low">Low</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="status">Change Status:</label>
+                                            <input type="checkbox" id="update_incomplete" name="check" onclick="onlyOne(this)" selected>InComplete
+                                            <input type="checkbox" id="update_complete" name="check" onclick="onlyOne(this)" selected>Complete
+
+
+                                        </div>
+                                        <script>
+                                            function onlyOne(checkbox) {
+                                                var checkboxes = document.getElementsByName('check')
+                                                checkboxes.forEach((item) => {
+                                                    if (item !== checkbox) item.checked = false
+                                                })
+                                            }
+                                        </script>
+
+
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="Submit" class="btn btn-primary" id="editDetails">Update</button>
+                                    <button type="Submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- </div> -->
+                <!-- <div class="card mb-3">
+                        <div class="card-header">
+                            Featured
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            Featured
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div> -->
+
+
+
+                <div class="col-sm-1"></div>
+                <div class="col-sm-4">
+                    <form>
+                        <h2 class="task_list_heading">Add New Task</h2><br>
+                        <fieldset>
+
+                            <label for="titl">Title:*</label>
+                            <input type="text" id="title" name="title" required>
+
+                            <label for="description">Description:</label>
+                            <input type="text" id="description" name="description">
+
+                            <label for="dat">Due Date:*</label>
+                            <input type=date id="duedate" name="duedate">
+
+
+                            <label for="priorit">Priority:*</label>
+                            <select id="priority" name="priority">
+                                <option value="1high" >High</option>
+                                <option selected vlaue="2medium">Medium</option>
+                                <option value ="3low">Low</option>
+                            </select>
+
+                            <label for="statu">Status:</label>
+                            <select id="status" name="status">
+                                <option value="incomplete" selected >InComplete</option>
+                            </select>
+                            <!-- <input type="text" name="status" id="status"> -->
+                        </fieldset>
+
+                        <button id="submit">Submit</button>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+document.getElementById('duedate').value = new Date(new Date().getTime() + 24 * 60 * 60 * 1000 - new Date().getTimezoneOffset() * 60 * 1000).toISOString().substr(0, 10);;
